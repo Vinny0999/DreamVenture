@@ -1,0 +1,54 @@
+{% extends 'sub_layout.html' %}
+{% load static %}
+{% block 'main_content' %}
+    <div class="row px-0">
+        <div class="col-md-12 px-0">
+            <div id="intro" class="view">
+                <div class="container">
+                    <p>COMPUTERIZE AND IT</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row px-0"  style="background: #e3e8ec;">
+        <div class="col-md-6 mt-5 mb-5 ">
+            <div class="container">
+                <a href=""><img src="{% static 'Images/photo1.jpg' %}" height="500px" width="500px" class="img-fluid"></a>
+            </div>
+        </div>
+        <div class="col-md-6 mt-5 mb-5">
+            <div class="container">
+                <h1 style="color: rgb(47, 47, 47); font-size: 40px; font-family: 'Quicksand', sans-serif;">About Computerize and IT</h1>
+                <p class="mt-2" style="color: rgb(47, 47, 47); font-size: 20px; font-family: 'Quicksand', sans-serif">Computer careers may involve creating business applications, performing system analysis, designing, developing, supporting and managing computer soft or even working in the field of robotics and artificial intelligence.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime odit odio, nam quos atque vel cumque,reiciendis nesciunt magni praesentium omnis. Culpa voluptatum iusto consectetur molestias delectus cumque? Laudantium, illum!
+                </p>
+                <div class="button text-center text-center mt-5 mb-5">
+                    <a href=""><button class="btn" >Read more</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row px-0">
+        <div class="col-md-4 px-0 mt-5">
+            <div class="container">
+                <h3 class="mt-3" style="color: rgb(47, 47, 47); font-size: 40px; font-family: 'Quicksand', sans-serif;">More Information...</h3>
+            </div>
+        </div>
+        <div class="col-md-7 mt-5 mb-5 ">
+            <div class="container">
+                <a href=""><iframe width="100%" height="300px"  src="https://www.youtube.com/embed/tUP5S4YdEJo" title="YouTube video player" 
+                frameborder="0" allow="accelerometer;autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row px-0" style="background-color: #19502b">
+        <div class="container mt-5 mb-5">
+            <span class="col-md-10" style="color: white; font-size: 30px; font-family: 'Quicksand', sans-serif;">Learn the Cost of your Advertising Campaign Right Now!</span>
+            <button class="col-md-2 btn btn-lg p-2" style="background: #28a745; font-family: 'Oswald', sans-serif; text-transform: uppercase; font-size: 20px;">View All pricing</button>  
+        </div>
+    </div>
+
+{% endblock %}

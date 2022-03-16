@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: rgb(190, 190, 190);
+        }
+        .row{
+            background: white;
+            border-radius: 30px;
+            box-shadow: 12px 12px 22px grey;
+        }
+        img{
+            border-top-left-radius: 30px;
+            border-bottom-left-radius: 30px;
+        }
+        .btn{
+            border: none;
+            outline: none;
+            height: 50px;
+            width: 100%;
+            background-color: black;
+            color: white;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .btn:hover{
+            background: white;
+            border: 1px solid;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="form my-3 mx-5">
+        <div class="container">
+            <div class="row no-gutters">
+                <div class="col-md-5">
+                    <img src="{% static 'images/login.jpg' %}" class="img-fluid" alt="">
+                </div>
+                <div class="col-md-7 px-5 pt-5">
+                    <h1 class="font-weight-bold py-3">Login</h1>
+                    <h4>Sign to your account</h4>
+                    {% if messages %}
+                        <ul class="list-group">
+                            {% for m in messages %}
+                                <li class="list-group-item text-dark">
+                                    {{m}}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    <form action="login" method="post">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="col-md-7">
+                                <input class="form-control my-3 p-4" placeholder="Email-Address" type="email" name="email" id="">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-7">
+                                <input class="form-control my-3 p-4" placeholder="*****" type="password" name="password" id="">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-7">
+                                <button class="btn mt-3 mb-5" name="signin">Login</button>
+                            </div>
+                        </div>
+                        <a href="{% url 'reset_password' %}">Forget password?</a>
+                        <p>Don't have an account?<a href="{% url 'register' %}">Register here</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

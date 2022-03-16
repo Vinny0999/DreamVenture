@@ -1,0 +1,424 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="{% static 'jquery.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <style>
+        .navbar-nav .nav-item > .nav-link:hover{
+            color: #00a275;
+        }
+        .navbar-nav .nav-item{
+            transition: border-bottom .3s ease;
+        }
+        .navbar-nav .nav-item:hover{
+            border-bottom: 1px solid #00a275;
+        }
+        .navbar-nav .dropdown .dropdown-menu{
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            font-size: 20px;
+            border-radius: 10%;
+        }
+        .navbar-nav .dropdown .dropdown-menu .dropdown-item:hover{
+            border-radius: 15%;
+            background: #00a275;
+            color: whitesmoke;
+        }
+        .navbar-nav  .nav-item > .nav-link{
+            color: #7d7171;
+        }
+        .navbar-brand >img{
+            width: 10em;
+            height: 10em;
+            margin-top: -70px;
+            margin-bottom: -70px;
+        }
+        .intro{
+            background: url('{% static "images/laptop.jpg" %}');
+            height: 90vh;
+            width: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(0.5,0.5,0.5,0.5));
+        }
+        .table > tbody tr:hover{
+            background-color: rgb(241, 241, 241);
+            transform: scale(1.02);
+            box-shadow: 2px 2px 12px rgba(0,0,0,0.2), -1px -1px 8 px rgba(0,0,0,0);
+        }
+        .table > tbody img{
+            margin: -20px;
+        }
+        .button > a .btn{
+            border: 1px solid #235f22;
+            color: whitesmoke;
+            font-weight: 600;
+            font-size: 20px;
+            text-transform: uppercase;
+            background: none;
+            padding: 10px 20px;
+            font-size: 20px;
+            font-family: 'Quicksand', sans-serif;
+            cursor: pointer;
+            margin: 10px;
+            transition: 0.8s;
+            position: relative;
+            overflow: hidden;
+        }
+        .button > a .btn:hover{
+            color: #235f22;
+        }
+        .button > a .btn::before{
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 0%;
+            background: #235f22;
+            z-index: -1;
+            transition: 0.8s;
+            top: 0;
+            border-radius: 0 0 50% 50%;
+            height: 180%;
+        }
+        .button > a .btn:hover::before{
+            height: 0%;
+        }
+        .swiper-container {
+            width: 300px;
+            height: 300px;
+            padding: 50px;
+        }
+
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            border-radius: 50%;
+        }
+        .footer{
+            background: #312150;
+            color: white;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row px-0">
+            <div class="col-md-12 px-0">
+
+                <!-- navbar  -->
+
+                <nav class="navbar nav navbar-expand-lg navbar-dark p-3 fixed-top" style="background-color: #1a0f2e;">
+                    <div class="container">
+                        <a href="{% url 'index' %}" class="navbar-brand"><img src="{% static 'images/logo1.png' %}" alt=""></a>
+                        <button data-toggle="collapse" data-target="#myNav" class="navbar-toggler ml-auto">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="myNav" style="text-transform: capitalize; font-size: 20px; font-family: 'Bitter',serif;">
+                            <ul class="navbar-nav mx-auto">
+                                <li class="nav-item ml-4">
+                                    <a href="{% url 'index' %}" class="nav-link">home</a>
+                                </li>
+                                <li class="nav-item ml-4">
+                                    <a href="{%url 'serv'%}" class="nav-link">services</a>
+                                </li>
+                                <li class="nav-item dropdown ml-4">
+                                    <a href="" data-toggle="dropdown" class="nav-link dropdown-toggle">jobs</a>
+                                    <div class="dropdown-menu">
+                                        <a href="{%url 'all_type'%}" class="dropdown-item">All Types</a>
+                                        <a href="{%url 'comp_it'%}" class="dropdown-item">Computerize and IT</a>
+                                        <a href="{%url 'digit_mrkt'%}" class="dropdown-item">Digital Marketing</a>
+                                        <a href="{%url 'desigin'%}" class="dropdown-item">Designing</a>
+                                        <a href="{%url 'accessories'%}" class="dropdown-item">Accessories</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown ml-4">
+                                   <a href="" data-toggle="dropdown" class="nav-link dropdown-toggle">pages</a>
+                                    <div class="dropdown-menu">
+                                        <a href="{%url 'about_us'%}" class="dropdown-item">About Us</a>
+                                        <a href="{%url 'career'%}" class="dropdown-item">Careers</a>
+                                        <a href="{%url 'srch_rslt'%}" class="dropdown-item">Search Result</a>
+                                        <a href="{%url 'services'%}" class="dropdown-item">Services</a>
+                                        <a href="{%url 'privacy_policy'%}" class="dropdown-item">Privacy Policy</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item ml-4"> 
+                                   <a href="{% url 'cont_us' %}" class="nav-link">contact us</a>
+                                </li>
+                            </ul>
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item ml-4">
+                                    <a href="{% url 'login' %}" class="nav-link">login</a>
+                                </li>
+                                <li class="nav-item ml-4">
+                                    <a href="{% url 'register' %}" class="nav-link">registration</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- phase1 -->
+
+                <div class="intro">
+                    <div class="container" style="text-align: center;">
+                        <h1 style="font-size: 60px; color: whitesmoke; font-family: 'Quicksand',sans-serif; text-transform: capitalize;">sign-in to</h1>
+                        <h2 style="font-size: 70px; color: whitesmoke; font-family: 'Dela Gothic One',cursive; text-transform: capitalize;">reach your dream job</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- phase2 -->
+
+        <div class="row px-0" style="background: #e3e8ec;">
+            <div class="col-md-5 mt-5 mb-5 mx-5 px-0">
+                <div class="container">
+                    <a href="" style="color: #407A52;"><i class="fas fa-desktop fa-4x"></i></a>
+                    <h1 class="mt-3" style="color: rgb(47, 47, 47); font-size: 40px; font-family: 'Quicksand', sans-serif;">IT Sphere</h1>
+                    <p class="mt-2" style="color: rgb(47, 47, 47); font-size: 25px; font-family: 'Quicksand', sans-serif">IT sphere is one of the most rapid-growing industries where many young specialists find a chance to be employed.</p>
+                </div>
+            </div>
+            <div class="col-md-5 mt-5 mb-5 mx-5 px-0">
+                <div class="container">
+                    <a href="" style="color: #407A52;"><i class="fas fa-store fa-4x"></i></a>
+                    <h1 class="mt-3" style="color: rgb(47, 47, 47); font-size: 40px; font-family: 'Quicksand', sans-serif;">Trade</h1>
+                    <p class="mt-2" style="color: rgb(47, 47, 47); font-size: 25px; font-family: 'Quicksand', sans-serif">Trade is a perfect option if you have just graduated and are looking for a job where your skills will be useful.</p>
+                </div>
+            </div>
+            <div class="col-md-5 mt-5 mb-5 mx-5">
+                <div class="container">
+                    <a href="" style="color: #407A52;"><i class="fas fa-wrench fa-4x"></i></a>
+                    <h1 class="mt-3" style="color: rgb(47, 47, 47); font-size: 40px; font-family: 'Quicksand', sans-serif;">Industrial</h1>
+                    <p class="mt-2" style="color: rgb(47, 47, 47); font-size: 25px; font-family: 'Quicksand', sans-serif">Working in this sector is great for those people who want to experience real challenges and get a competitive salary.</p>
+                </div>
+            </div>
+            <div class="col-md-5 mt-5 mb-5 mx-5">
+                <div class="container">
+                    <a href="" style="color: #407A52;"><i class="fas fa-bullhorn fa-4x"></i></a>
+                    <h1 class="mt-3" style="color: rgb(47, 47, 47); font-size: 40px; font-family: 'Quicksand', sans-serif;">PR & Marketing</h1>
+                    <p class="mt-2" style="color: rgb(47, 47, 47); font-size: 25px; font-family: 'Quicksand', sans-serif">This industry is a good choice if you wish to be employed at a company working with businesses and entrepreneurs.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- phase3 -->
+
+        <div class="row px-0">
+            <div class="col-md-12 px-0 mt-5 mb-5">
+                <h1 class="text-center mt-3" style="color: rgb(47, 47, 47); font-size: 40px; font-family: 'Quicksand', sans-serif; text-transform: capitalize;">Latest job position</h1>
+                <p class="container text-center mx-auto mt-5" style="color: rgb(47, 47, 47); font-size: 25px; font-family: 'Quicksand', sans-serif">Browse the recent vacancies added by companies from all over the USA. Our database is updated every hour with hundreds of new job positions, which might interest you.</p>
+            </div>
+            <div class="container">
+                <div style="overflow:auto;">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th class="text-center" scope="col" style="color: rgb(47, 47, 47); font-size: 25px; font-family: 'Quicksand',sans-serif;">Date</th>
+                            <th class="text-center" scope="col" style="color: rgb(47, 47, 47); font-size: 25px; font-family: 'Quicksand',sans-serif;">Company</th>
+                            <th class="text-center" scope="col" style="color: rgb(47, 47, 47); font-size: 25px; font-family: 'Quicksand',sans-serif;">Job Vacancy</th>
+                            <th class="text-center" scope="col" style="color: rgb(47, 47, 47); font-size: 25px; font-family: 'Quicksand',sans-serif;">City</th>
+                            <th class="text-center" scope="col" style="color: rgb(47, 47, 47); font-size: 25px; font-family: 'Quicksand',sans-serif;">Salaries</th>
+                            <th class="text-center" scope="col" style="color: rgb(47, 47, 47); font-size: 25px; font-family: 'Quicksand',sans-serif;">Employement</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="text-center" scope="row" style="color:rgb(47, 47, 47); font-size: 22px;font-family: 'Yanone Kaffeesatz', sans-serif;">Feb 27,2021</td>
+                            <td class="text-center"><img src="{% static 'images/img.png'%}" height="100px" width="100px" alt=""></td>
+                            <td class="text-center" style="color:rgb(15, 112, 15); font-size: 22px; font-family: 'Yanone Kaffeesatz', sans-serif;">Developer</td>
+                            <td class="text-center" style="color:rgb(47, 47, 47); font-size: 22px; font-family: 'Yanone Kaffeesatz', sans-serif;">Mohali</td>
+                            <td class="text-center" style="color:rgb(47, 47, 47); font-size: 22px; font-family: 'Yanone Kaffeesatz', sans-serif;">₹ 3,50,000</td>
+                            <td class="text-center" style="color:rgb(47, 47, 47); font-size: 22px; font-family: 'Yanone Kaffeesatz', sans-serif;">Full Time</td>
+                          </tr>
+                          <tr>
+                            <td class="text-center" scope="row" style="color:rgb(47, 47, 47); font-size: 22px;font-family: 'Yanone Kaffeesatz', sans-serif;">Feb 27,2021</td>
+                            <td class="text-center"><img src="{% static 'images/img2.png'%}" height="100px" width="100px" alt=""></td>
+                            <td class="text-center" style="color:rgb(15, 112, 15); font-size: 22px; font-family: 'Yanone Kaffeesatz', sans-serif;">Deisgner</td>
+                            <td class="text-center" style="color:rgb(47, 47, 47); font-size: 22px; font-family: 'Yanone Kaffeesatz', sans-serif;">Mohali</td>
+                            <td class="text-center" style="color:rgb(47, 47, 47); font-size: 22px; font-family: 'Yanone Kaffeesatz', sans-serif;">₹ 3,50,000</td>
+                            <td class="text-center" style="color:rgb(47, 47, 47); font-size: 22px; font-family: 'Yanone Kaffeesatz', sans-serif;">Full Time</td>
+                          </tr>
+                          <tr>
+                            <td class="text-center" scope="row" style="color:rgb(47, 47, 47); font-size: 22px;font-family: 'Yanone Kaffeesatz', sans-serif;">Feb 27,2021</td>
+                            <td class="text-center"><img src="{% static 'images/img3.png'%}" height="100px" width="100px" alt=""></td>
+                            <td class="text-center" style="color:rgb(15, 112, 15); font-size: 22px; font-family: 'Yanone Kaffeesatz', sans-serif;">Manager</td>
+                            <td class="text-center" style="color:rgb(47, 47, 47); font-size: 22px; font-family: 'Yanone Kaffeesatz', sans-serif;">Mohali</td>
+                            <td class="text-center" style="color:rgb(47, 47, 47); font-size: 22px; font-family: 'Yanone Kaffeesatz', sans-serif;">₹ 3,50,000</td>
+                            <td class="text-center" style="color:rgb(47, 47, 47); font-size: 22px; font-family: 'Yanone Kaffeesatz', sans-serif;">Full Time</td>
+                          </tr>
+                          <tr>
+                            <td class="text-center" scope="row" style="color:rgb(47, 47, 47); font-size: 22px;font-family: 'Yanone Kaffeesatz', sans-serif;">Feb 27,2021</td>
+                            <td class="text-center"><img src="{% static 'images/img.png'%}" height="100px" width="100px" alt=""></td>
+                            <td class="text-center" style="color:rgb(15, 112, 15); font-size: 22px; font-family: 'Yanone Kaffeesatz', sans-serif;">Digital Marketing</td>
+                            <td class="text-center" style="color:rgb(47, 47, 47); font-size: 22px; font-family: 'Yanone Kaffeesatz', sans-serif;">Mohali</td>
+                            <td class="text-center" style="color:rgb(47, 47, 47); font-size: 22px; font-family: 'Yanone Kaffeesatz', sans-serif;">₹ 3,50,000</td>
+                            <td class="text-center" style="color:rgb(47, 47, 47); font-size: 22px; font-family: 'Yanone Kaffeesatz', sans-serif;">Full Time</td>
+                          </tr>
+                          <tr>
+                            <td class="text-center" scope="row" style="color:rgb(47, 47, 47); font-size: 22px;font-family: 'Yanone Kaffeesatz', sans-serif;">Feb 27,2021</td>
+                            <td class="text-center"><img src="{% static 'images/img3.png'%}" height="100px" width="100px" alt=""></td>
+                            <td class="text-center" style="color:rgb(15, 112, 15); font-size: 22px; font-family: 'Yanone Kaffeesatz', sans-serif;">Art Designer</td>
+                            <td class="text-center" style="color:rgb(47, 47, 47); font-size: 22px; font-family: 'Yanone Kaffeesatz', sans-serif;">Mohali</td>
+                            <td class="text-center" style="color:rgb(47, 47, 47); font-size: 22px; font-family: 'Yanone Kaffeesatz', sans-serif;">₹ 3,50,000</td>
+                            <td class="text-center" style="color:rgb(47, 47, 47); font-size: 22px; font-family: 'Yanone Kaffeesatz', sans-serif;">Full Time</td>
+                          </tr>
+                          <tr>
+                            <td class="text-center" scope="row" style="color:rgb(47, 47, 47); font-size: 22px;font-family: 'Yanone Kaffeesatz', sans-serif;">Feb 27,2021</td>
+                            <td class="text-center"><img src="{% static 'images/img2.png'%}" height="100px" width="100px" alt=""></td>
+                            <td class="text-center" style="color:rgb(15, 112, 15); font-size: 22px; font-family: 'Yanone Kaffeesatz', sans-serif;">Web Designer</td>
+                            <td class="text-center" style="color:rgb(47, 47, 47); font-size: 22px; font-family: 'Yanone Kaffeesatz', sans-serif;">Mohali</td>
+                            <td class="text-center" style="color:rgb(47, 47, 47); font-size: 22px; font-family: 'Yanone Kaffeesatz', sans-serif;">₹ 3,50,000</td>
+                            <td class="text-center" style="color:rgb(47, 47, 47); font-size: 22px; font-family: 'Yanone Kaffeesatz', sans-serif;">Full Time</td>
+                          </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="button text-center text-center mt-5 mb-5">
+                    <a href=""><button class="btn">view all vacancies</button></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- phase4 -->
+
+        <div class="row px-0" style="background: #e3e8ec;">
+            <div class="col-md-5 mt-5 mb-5 mx-auto">
+                <img src="{% static 'images/photo4.jpg' %}" class="img-fluid">
+            </div>
+            <div class="col-md-5 mt-4 mx-auto">
+                <P style="color: rgb(47, 47, 47); font-size: 40px; font-family: 'Quicksand', sans-serif;">A Few Words About Us</P>
+                <p style="color: rgb(47, 47, 47); font-size: 20px; font-family: 'Quicksand', sans-serif;"> We are a team of talented marketers who happen to love creating smart ideas for those who will have us. We use our creative potential to provide the smartest ideas.</p>
+                <p style="color: rgb(47, 47, 47); font-size: 20px; font-family: 'Quicksand', sans-serif;"> We have a wide range of experience, expertise and tools to create and implement your campaigns, from carefully curating awesome content to optimising it with our great SEO powers as well as outdoor marketing skills</p>
+                <div class="button text-center mt-5 mb-5">
+                    <a href=""><button class="btn btn-outline">Learn more</button>
+                </div>
+            </div> 
+        </div>
+
+        <!-- phase5 -->
+
+        <div class="row px-0" >
+            <div class="col-md-12 mt-5 px-0">
+                <h4 class="text-center" style="color: rgb(47, 47, 47); font-size: 40px; font-family: 'Quicksand', sans-serif; text-transform: capitalize;">TESTIMONIALS</h4>
+            </div>
+        </div>
+        <div class="swiper-container mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="{% static 'images/richa.jpg'%}" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="{% static 'images/sayista.jpg'%}" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="{% static 'images/vinay.jpg'%}" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="{% static 'images/ajay.jpg'%}" />
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <!-- <div class="swiper-pagination"></div> -->
+        </div>
+
+          <!-- Initialize Swiper -->
+        <script>
+            var swiper = new Swiper(".mySwiper", {
+                effect: "flip",
+                grabCursor: true,
+                pagination: {
+                    el: ".swiper-pagination",
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+        </script>
+            
+        <!-- phase6 -->
+
+        <div class="row px-0">
+            <div class="col-md-12 px-0 text-center" style="background-color: rgb(3, 49, 22);height: 150px;">
+                <span class="mt-5 mb-5" style="color: white; font-size: 30px; font-family: 'Quicksand', sans-serif;"> We offer Free Job Postings for <strong>Employers  </strong></span>
+                <button class="btn mt-5 mb-5" style="background: #28a745; font-family: 'Oswald', sans-serif; text-transform: uppercase; font-size: 20px;">FIND OUT MORE</button>    
+            </div>
+        </div>
+
+    </div>
+
+    <!-- footer -->
+
+    <footer class="footer">
+        <div class="container p-4">
+            <div class="row">
+                <div class="col-md-4 mb-4 mt-5">
+                    <h5 class="text-capitalize" style="font-size: 35px; color: white;">quick link</h5>
+                    <a href="About-us.html" class="text-light" style="font-size: 23px;"><p>About US</p></a>
+                    <a href="career.html" class="text-light" style="font-size: 23px;"><p>Careers</p></a>
+                    <a href="services.html" class="text-light" style="font-size: 23px;"><p>Services</p></a>
+                    <a href="contact_us.html" class="text-light" style="font-size: 23px;"><p>Contact</p></a>
+                </div>
+                <div class="col-md-4 mb-4 mt-5">
+                    <h5 class="text-capitalize" style="font-size: 35px;">Contact information</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <a href="" class="btn btn-link btn-lg text-light"><i class="fas fa-map-marker-alt"></i></a>
+                            <span>SachTech Solution Pvt. Ltd., Sector-74, Mohali</span>
+                        </li>
+                        <li>
+                            <a href="" class="btn btn-link btn-lg text-light"><i class="fas fa-phone-alt"></i></a>
+                            <span>9876543210</span>
+                        </li>
+                        <li>
+                            <a href="" class="btn btn-link btn-lg text-light"><i class="fas fa-envelope"></i></a>
+                            <span>dreamventure0@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4 mt-5">
+                    <h5 class="text-capitalize" style="font-size: 35px;">Newsletter</h5>
+                    <p>Sign up to our newsletter and be the first to know about latest news, special offers, events, and discounts</p>
+                    <div class="position-relative">
+                        <input type="email" class="form-control" placeholder="Email">
+                        <button type="submit" class="btn btn-success mb-4" style="position:absolute;top:0%;right:0px"><i class="fas fa-envelope"></i></button>
+                    </div>
+                </div>
+                <div class="col-md-12 text-right">
+                    <p>&copy;2021 All Rights Reserved. Terms of Use and Privacy Policy</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

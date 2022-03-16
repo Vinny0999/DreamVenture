@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="{% static 'jquery.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: rgb(190, 190, 190);
+        }
+        .row{
+            background: white;
+            border-radius: 30px;
+            box-shadow: 12px 12px 22px grey;
+        }
+        img{
+            border-top-left-radius: 30px;
+            border-bottom-left-radius: 30px;
+        }
+        .btn{
+            border: none;
+            outline: none;
+            height: 50px;
+            width: 100%;
+            background-color: black;
+            color: white;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .btn:hover{
+            background: white;
+            border: 1px solid;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="form my-3 mx-5">
+        <div class="container">
+            <div class="row no-gutters">
+                <div class="col-md-5">
+                    <img src="{% static 'images/login.jpg' %}" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-7 px-5 pt-2">
+                    <h1 class="font-weight-bold py-3">Registration for Student</h1>
+                    {% if messages %}
+                        <ul class="list-group">
+                            {% for m in messages %}
+                                <li class="list-group-item text-dark">
+                                    {{m}}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    <form action="reg_student" method="post">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="col">
+                                <input type="text" class="form-control mt-4 form-control-lg" placeholder="First name" name="first_name">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control mt-4 form-control-lg" placeholder="Last name" name="last_name">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-12">
+                                <input type="email" class="form-control mt-4 form-control-lg" placeholder="Email-Address" name="email">
+                            </div>
+                            <div class="col-md-12">
+                                <input type="text" class="form-control mt-4 form-control-lg" placeholder="9876543210" name="phone">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-12">
+                                <input type="password" class="form-control mt-4 form-control-lg" placeholder="Password" name="password">
+                            </div>
+                            <div class="col-md-12">
+                                <input type="password" class="form-control mt-4 form-control-lg" placeholder="Confirm Password" name="password">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <button class="btn mt-5 mb-5" name="signup">Register</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

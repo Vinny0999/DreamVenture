@@ -1,0 +1,42 @@
+{% extends 'sub_layout.html' %}
+{% load static %}
+{% block 'main_content' %}
+        <div class="row px-0">
+            <div class="col-md-12 px-0">
+                <div id="intro" class="view">
+                    <div class="container">
+                        <p>About us</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row px-0" style="background-color: #e3e8ec;">
+            <div class="col-md-6 col-lg-6 mt-5 mb-2">
+                <div class="container">
+                    <h1 style="font-size: 55px; color: rgb(0, 0, 0); font-family: 'Quicksand', sans-serif;">Overview</h1>
+                    <h5 style="font-size: 23px; color: rgb(15, 13, 13); font-family: 'Quicksand', sans-serif;" >JobPortal works to satisfy the increasing needs of domestic and international businesses.</h5>
+                    <p style="font-size: 17px; color: rgb(87, 78, 78); font-family: 'Quicksand', sans-serif
+                    ;">We are a team of dedicated business experts specialising in management, promotion, marketing, accounting, advertising, and other business-related spheres. The goal of JobPortal is to improve the success of our clients’ businesses and offer affordable services.</p>
+                    <div class="button text-center mt-5 mb-5">
+                        <a href=""><button class="btn btn-outline">Join Our Team</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mt-5">
+                <div class="container">
+                    <img src="{% static 'images/photo2.jpg' %}" class="img-fluid d-block round mt-5 mb-5" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="row px-0" style="background-color: #407A52">
+            <div class="container mt-5 mb-5">
+                <span class="col-md-10" style="color: white; font-size: 30px; font-family: 'Quicksand', sans-serif;">Learn the Cost of your Advertising Campaign Right Now!</span>
+                <button class="col-md-2 btn btn-lg p-2" style="background: #28a745; font-family: 'Oswald', sans-serif; text-transform: uppercase; font-size: 20px;">View All pricing</button>  
+            </div>
+        </div>
+
+    {% endblock %}
+
+    

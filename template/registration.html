@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../package/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Quicksand', sans-serif;
+        }
+        body{
+            background: rgb(190, 190, 190);
+        }
+        .row{
+            background: white;
+            border-radius: 30px;
+            box-shadow: 12px 12px 22px grey;
+        }
+        img{
+            border-top-left-radius: 30px;
+            border-bottom-left-radius: 30px;
+        }
+        .btn{
+            border: none;
+            outline: none;
+            height: 50px;
+            width: 100%;
+            background-color: black;
+            color: white;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .btn:hover{
+            background: white;
+            border: 1px solid;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="row my-5 mx-5">
+        <div class="container">
+            <div class="form-row">
+                <div class="col-md-6 mt-5 mb-5 mx-auto">
+                    <a href="{% url 'register_company' %}"><button class="btn">Registration for Company</button></a>
+                </div>
+            </div>
+            <div class="underline" style="border: 1px solid black;"></div>
+            <div class="form-row">
+                <div class="col-md-6 mt-5 mb-5 mx-auto">
+                    <a href="{% url 'register_student' %}"><button class="btn">Registration for Students</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

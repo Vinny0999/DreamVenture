@@ -1,0 +1,41 @@
+{% extends 'sub_layout.html' %}
+{% load static %}
+{% block 'main_content' %}
+        <div class="row px-0">
+            <div class="col-md-12 px-0">
+                <div id="intro" class="view">
+                    <div class="container">
+                        <p>DIGITAL MARKETING</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row px-0"  style="background: #e3e8ec;">
+            <div class="col-md-6 mt-5 mb-5 ">
+                <div class="container">
+                    <a href=""><img src="{% static 'images/photo 4.jpg' %}" height="500px" width="500px" class="img-fluid"></a>
+                </div>
+            </div>
+            <div class="col-md-6 mt-5 mb-5">
+                <h1 style="color: rgb(47, 47, 47); font-size: 40px; font-family: 'Quicksand', sans-serif;">About Digital Marketing</h1>
+                <p class="mt-2" style="color: rgb(47, 47, 47); font-size: 25px; font-family: 'Quicksand', sans-serif">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo similique sed harum 
+                    voluptatum omnis illum laudantium quae! Cum doloremque quaerat ea corrupti
+                    consequuntur molestiae, sapiente reiciendis assumenda vel explicabo autem.e.
+                </p>
+                <div class="button text-center mt-5">
+                    <a href=""><button class="btn" >Read more</button></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row px-0" style="background-color: #19502b">
+            <div class="container mt-5 mb-5">
+                <span class="col-md-10" style="color: white; font-size: 30px; font-family: 'Quicksand', sans-serif;">Learn the Cost of your Advertising Campaign Right Now!</span>
+                <button class="col-md-2 btn btn-lg p-2" style="background: #28a745; font-family: 'Oswald', sans-serif; text-transform: uppercase; font-size: 20px;">View All pricing</button>  
+            </div>
+        </div>
+
+    </div>
+    
+    {% endblock %}

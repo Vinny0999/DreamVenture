@@ -1,0 +1,246 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" >
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+    crossorigin="anonymous" />
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+    integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+    crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" >
+
+    <style>
+        .navbar-nav .nav-item .nav-link{
+            font-size: 20px;
+            text-transform: uppercase;
+            text-decoration: black;
+            font-family: 'Bitter', serif;
+        }
+        .navbar-nav .nav-item .nav-link:hover{
+            color: #00a275;
+        }
+        .navbar-nav .nav-item{
+            transition: border-bottom .3s ease;
+        }
+        .navbar-nav .nav-item:hover{
+            border-bottom: 1px solid #00a275;
+        }
+        .navbar-nav .dropdown .dropdown-menu{
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            font-size: 20px;
+            border-radius: 10%;
+        }
+        .navbar-nav .dropdown .dropdown-menu .dropdown-item:hover{
+            border-radius: 15%;
+            background: #00a275;
+            color: whitesmoke;
+        }
+        .navbar img{
+            width: 10em;
+            height: 10em;
+            margin: 0px;
+            margin-top: -70px;
+            margin-bottom: -70px;
+        }
+        #intro{
+            height: 90vh;
+            background: url('{% static "images/image.jpg" %}');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.5));
+        }
+        .view p{
+            text-align: left;
+            color: whitesmoke;
+            text-transform: capitalize;
+            font-size: 90px;
+            font-family: 'Quicksand', sans-serif;
+        }
+        .button > a .btn{
+            border: 1px solid #235f22;
+            color: whitesmoke;
+            font-weight: 600;
+            font-size: 20px;
+            text-transform: uppercase;
+            background: none;
+            padding: 10px 20px;
+            font-size: 20px;
+            font-family: 'Quicksand', sans-serif;
+            cursor: pointer;
+            margin: 10px;
+            transition: 0.8s;
+            position: relative;
+            overflow: hidden;
+        }
+        .button > a .btn:hover{
+            color: #235f22;
+        }
+        .button > a .btn::before{
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 0%;
+            background: #235f22;
+            z-index: -1;
+            transition: 0.8s;
+            top: 0;
+            border-radius: 0 0 50% 50%;
+            height: 180%;
+        }
+        .button > a .btn:hover::before{
+            height: 0%;
+        }
+        .footer{
+            background: #312150;
+            color: white;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row px-0">
+            <div class="col-md-12 px-0">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light p-4 fixed-top">
+                    <div class="container">
+                        <a href="{% url 'index' %}" class="navbar-brand"><img src="{% static 'images/logo.png' %}" alt=""></a>
+                        <button data-toggle="collapse" data-target="#myNav" class="navbar-toggler">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="myNav">
+                            <ul class="navbar-nav ml-auto text-dark">
+                                <li class="nav-item ml-4">
+                                    <a href="{% url 'index' %}" class="nav-link">home</a>
+                                </li>
+                                <li class="nav-item ml-4">
+                                    <a href="{%url 'serv'%}" class="nav-link">services</a>
+                                </li>
+                                <li class="nav-item dropdown ml-4">
+                                    <a href="" data-toggle="dropdown" class="nav-link dropdown-toggle">jobs</a>
+                                    <div class="dropdown-menu">
+                                        <a href="{%url 'all_type'%}" class="dropdown-item">All Types</a>
+                                        <a href="{%url 'comp_it'%}" class="dropdown-item">Computerize and IT</a>
+                                        <a href="{%url 'digit_mrkt'%}" class="dropdown-item">Digital Marketing</a>
+                                        <a href="{%url 'desigin'%}" class="dropdown-item">Designing</a>
+                                        <a href="{%url 'accessories'%}" class="dropdown-item">Accessories</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown ml-4">
+                                    <a href="" data-toggle="dropdown" class="nav-link dropdown-toggle">pages</a>
+                                    <div class="dropdown-menu">
+                                        <a href="{%url 'about_us'%}" class="dropdown-item">About Us</a>
+                                        <a href="{%url 'career'%}" class="dropdown-item">Careers</a>
+                                        <a href="{%url 'srch_rslt'%}" class="dropdown-item">Search Result</a>
+                                        <a href="{%url 'services'%}" class="dropdown-item">Services</a>
+                                        <a href="{%url 'privacy_policy'%}" class="dropdown-item">Privacy Policy</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item ml-4">
+                                    <a href="{%url 'cont_us'%}" class="nav-link">Contacts</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- navbar -->
+
+        {% block 'main_content' %}
+        {% endblock %}
+
+        <!-- footer -->
+        <footer class="footer ">
+            <div class="container p-4">
+                <div class="row">
+                    <div class="col-md-4 mb-4 mt-5">
+                        <h5 class="text-capitalize" style="font-size: 35px;">About us</h5>
+                        <p>JobPortal is one of the highest rated and most recommended business management companies. We employ the best experts in the nation, while also using innovative techniques to attract more customers to your company.</p>
+                    </div>
+                    <div class="col-md-4 mb-4 mt-5">
+                        <h5 class="text-capitalize" style="font-size: 35px;">Contact information</h5>
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <a href="" class="btn btn-link btn-lg text-light"><i class="fas fa-map-marker-alt"></i></a>
+                                <span>SachTech Solution Pvt. Ltd., Sector-74, Mohali</span>
+                            </li>
+                            <li>
+                                <a href="" class="btn btn-link btn-lg text-light"><i class="fas fa-phone-alt"></i></a>
+                                <span>9876543210</span>
+                            </li>
+                            <li>
+                                <a href="" class="btn btn-link btn-lg text-light"><i class="fas fa-envelope"></i></a>
+                                <span>dreamventure0@gmail.com</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 mb-4 mt-5">
+                        <h5 class="text-capitalize" style="font-size: 35px;">Newsletter</h5>
+                        <p>Sign up to our newsletter and be the first to know about latest news, special offers, events, and discounts</p>
+                        <div class="position-relative">
+                            <input type="email" class="form-control" placeholder="Email">
+                            <button type="submit" class="btn btn-success mb-4" style="position:absolute;top:0%;right:0px"><i class="fas fa-envelope"></i></button>
+                        </div>
+                    </div>
+                    <div class="col-md-12 text-right">
+                        <p>&copy;2021 All Rights Reserved. Terms of Use and Privacy Policy</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous">
+    </script>
+    <script>
+        $('.owl-carousel').owlCarousel({    
+            loop: true,
+            margin: 20,
+            nav: true,
+            autoplay: true,
+            autoplayTimeout: 2000,
+            stagePadding: 50,
+            dots: false,
+            responsive: {
+              0: {
+                items: 1
+              },
+              600: {
+                items: 3
+              },
+              1000: {
+                items: 2
+              }
+            }
+        });
+    </script>
+</body>
+</html>

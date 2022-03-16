@@ -1,0 +1,116 @@
+{% extends 'sub_layout.html' %}
+{% load static %}
+{% block 'main_content' %}
+<style>
+    .image {
+            position: relative;
+            /* width: 500px; */
+        }
+        .image__img {
+            display: block;
+            width: 100%;
+        }
+        .image__overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 400px;
+            height: 250px;
+            background: rgba(0, 0, 0, 0.6);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.25s;
+            border-radius: 10%;
+        }
+        .image__overlay:hover {
+            opacity: 1;
+        }
+        .image__title {
+            font-size: 1.25em;
+            font-weight:bold ;
+        }
+</style>
+        <div class="container-fluid px-0" >
+            <div class="row px-0">
+                <div class="col-md-12 px-0">
+                    <div id="intro" class="view">
+                        <div class="container">
+                            <p>All Type</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="container">
+                <div class="row px-0" >
+                    <div class="col-md-6 mt-5 mb-5">
+                        <div class="container">
+                            <div class="image mx-auto">
+                                <img class="image__src" src="{% static 'images/photo1.jpg' %}" class="container img-fluid" style="border-radius: 10%;" alt="IT">
+                                <a href="{% url 'comp_it' %}">
+                                    <div class="image__overlay">
+                                        <div class="image__title" style="color: whiite; font-size: 40px; font-family: 'Quicksand', sans-serif; font-weight: 1000;">COMPUTERIZE</div>
+                                        <p class="image__description" style="color: white; font-size: 25px; font-family: 'Quicksand', sans-serif;">
+                                            Learn About Computerize and IT...
+                                        </p>
+                                    </div>
+                                </a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6  mt-5 mb-5">
+                        <div class="container">
+                            <div class="image mx-auto">
+                                <img class="image__src" src="{% static 'images/photo 4.jpg' %}" class="container img-fluid" style="border-radius: 10%;" alt="IT">
+                                <a href="{%url 'digit_mrkt'%}">
+                                    <div class="image__overlay">
+                                        <div class="image__title" style="color: whiite; font-size: 40px; font-family: 'Quicksand', sans-serif; font-weight: 1000;">DIGITAL MARKETING</div>
+                                        <p class="image__description" style="color: white; font-size: 25px; font-family: 'Quicksand', sans-serif;">
+                                            More Information about Digital Marketing...
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6  mt-5 mb-5">
+                        <div class="container">
+                            <div class="image mx-auto">
+                                <img class="image__src" src="{% static 'images/photo 3.jpg' %}" class="container img-fluid" style="border-radius: 10%;" alt="IT">
+                                <a href="{%url 'desigin'%}">
+                                    <div class="image__overlay">
+                                        <div class="image__title" style="color: whiite; font-size: 40px; font-family: 'Quicksand', sans-serif; font-weight: 1000;">WEB DESIGNING</div>
+                                        <p class="image__description" style="color: white; font-size: 25px; font-family: 'Quicksand', sans-serif;">
+                                            Learn about web designing...
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6  mt-5 mb-5">
+                        <div class="container">
+                            <div class="image mx-auto">
+                                <img class="image__src" src="{% static 'images/photo 2.jpg' %}" class="container img-fluid" style="border-radius: 10%;" alt="IT">
+                                <a href="{%url 'accessories'%}">
+                                    <div class="image__overlay">
+                                        <div class="image__title" style="color: whiite; font-size: 40px; font-family: 'Quicksand', sans-serif; font-weight: 1000;">ACCESSORIES</div>
+                                        <p class="image__description" style="color: white; font-size: 25px; font-family: 'Quicksand', sans-serif;">
+                                            About Accessories...
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    
+    {% endblock %}
